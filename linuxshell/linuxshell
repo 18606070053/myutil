@@ -1,0 +1,72 @@
+ ps -ef | grep RunNiFi         查看在跑的进程所在的位置
+
+chmod +x nifi.sh  给运行脚本语句授权
+chmod 777 给文件添加所有权限
+
+
+find -name 文件名   查找当前目录下是否有这个文件 全局建议到根目录查找
+
+df -Th 查看硬盘挂载的包
+free -h 查看服务器虚拟内存
+
+tar  zxvf
+
+unzip t.zip
+
+shutdown -h now 立即关机
+
+uname -a 查看系统版本
+
+reboot  立即重启
+
+lsblk 查看系统检测的硬盘和分区
+
+pwdx 进程号  查看进程程序安装目录
+
+mysql8.0 --
+
+启动数据库：systemctl start mysqld
+
+停止数据库：systemctl stop mysqld
+
+重启数据库：systemctl restart mysqld
+
+端口检查：netstat -ntpl|grep 3306
+
+查看数据库运行状态：systemctl status mysqld
+
+查看防火墙放行的ip iptables -nL
+
+# 停止防火墙
+
+systemctl stop firewalld
+
+# 禁用防火墙
+
+systemctl disable firewalld
+
+# 放行指定 IP
+
+firewall-cmd --permanent --add-rich-rule="rule family="ipv4" source address="10.231.6.63" accept"
+
+#删除防火墙放行的ip
+firewall-cmd --permanent --remove-rich-rule="rule family="ipv4" source address="10.231.6.170" accept"
+
+# 刷新防火墙配置
+
+firewall-cmd --reload
+
+--清理内存的缓存
+echo 1 > /proc/sys/vm/drop_caches
+
+查询es集群信息  curl http://10.41.11.31:9200/_cat/health?v
+curl http://10.41.11.31:9200/_cat/health?v -u elastic
+
+修改文件或者包的创建者
+chown -R elastic:elastic /home/bigdata/lwservice/elasticsearch-7.8.1
+
+查看cpu核心数
+ lscpu | grep "^CPU(s):" | head -n 1
+
+解压.gz文件
+gzip -dk file.gz
